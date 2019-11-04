@@ -1,6 +1,8 @@
 # ALU
 
-### How to test out the Adder, Boolean, Compare & Shifter components of the ALU
+### Group 3-3: Wee Ping, Jeslyn, Calvin, Luo Qi, Aaron
+
+#### How to test out the Adder, Boolean, Compare & Shifter components of the ALU
 
 1) Clone the repo
 2) Open ALU.alp file using Alchitry
