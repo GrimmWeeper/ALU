@@ -5,7 +5,6 @@ module aluCompiled (
     input b[16], //signed 16b B input
     input alufn[6],
     
-//mojo_top needs to show these outputs somehow
     output alu[16],
     output z,
     output v,
