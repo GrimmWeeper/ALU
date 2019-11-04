@@ -44,6 +44,5 @@ sig overflow;
     n = subber[15];
     add = adder;
     v = overflow;
-    //overflow from addition will be disregarded
 }
 }
