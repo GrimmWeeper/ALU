@@ -1,0 +1,1605 @@
+Warnings in file D:\Alchitry\ALU\source\mojo_top.luc:
+    Line 795, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 113, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 134, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 155, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 176, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 197, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 218, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 240, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 263, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 284, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 305, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 326, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 347, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 377, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 398, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 419, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 440, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 462, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 492, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 513, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 534, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 555, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 576, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 597, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 618, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 648, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 669, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 690, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 711, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 732, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 753, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+    Line 774, Column 20 : The signal "alu" is wider than "io_led[0]" and the most significant bits will be dropped
+
+****** PlanAhead v14.7 (64-bit)
+  **** Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+    ** Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+source {D:\Alchitry\ALU\work\project.tcl}
+# set projDir "D:/Alchitry/ALU/work/planAhead"
+# set projName "ALU"
+# set topName top
+# set device xc6slx9-2tqg144
+# if {[file exists "$projDir/$projName"]} { file delete -force "$projDir/$projName" }
+# create_project $projName "$projDir/$projName" -part $device
+# set_property design_mode RTL [get_filesets sources_1]
+# set verilogSources [list "D:/Alchitry/ALU/work/verilog/mojo_top_0.v" "D:/Alchitry/ALU/work/verilog/reset_conditioner_1.v" "D:/Alchitry/ALU/work/verilog/multi_seven_seg_2.v" "D:/Alchitry/ALU/work/verilog/aluCompiled_3.v" "D:/Alchitry/ALU/work/verilog/counter_4.v" "D:/Alchitry/ALU/work/verilog/seven_seg_5.v" "D:/Alchitry/ALU/work/verilog/decoder_6.v" "D:/Alchitry/ALU/work/verilog/adder16b_7.v" "D:/Alchitry/ALU/work/verilog/compare16b_8.v" "D:/Alchitry/ALU/work/verilog/boolean16b_9.v" "D:/Alchitry/ALU/work/verilog/shifter16b_10.v" ]
+# import_files -fileset [get_filesets sources_1] -force -norecurse $verilogSources
+# set ucfSources [list "C:/Program\ Files/Alchitry/Alchitry\ Labs/library/components/io_shield.ucf" "C:/Program\ Files/Alchitry/Alchitry\ Labs/library/components/mojo.ucf" ]
+# import_files -fileset [get_filesets constrs_1] -force -norecurse $ucfSources
+# set_property -name {steps.bitgen.args.More Options} -value {-g Binary:Yes -g Compress} -objects [get_runs impl_1]
+# set_property steps.map.args.mt on [get_runs impl_1]
+# set_property steps.map.args.pr b [get_runs impl_1]
+# set_property steps.par.args.mt on [get_runs impl_1]
+# update_compile_order -fileset sources_1
+# launch_runs -runs synth_1
+[Mon Nov 04 16:25:06 2019] Launched synth_1...
+Run output will be captured here: D:/Alchitry/ALU/work/planAhead/ALU/ALU.runs/synth_1/runme.log
+# wait_on_run synth_1
+[Mon Nov 04 16:25:06 2019] Waiting for synth_1 to finish...
+
+*** Running xst
+    with args -ifn "mojo_top_0.xst" -ofn "mojo_top_0.srp" -intstyle ise
+
+Reading design: mojo_top_0.prj
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/shifter16b_10.v" into library work
+Parsing module <shifter16b_10>.
+Analyzing Verilog file "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/seven_seg_5.v" into library work
+Parsing module <seven_seg_5>.
+Analyzing Verilog file "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/decoder_6.v" into library work
+Parsing module <decoder_6>.
+Analyzing Verilog file "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/counter_4.v" into library work
+Parsing module <counter_4>.
+Analyzing Verilog file "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/compare16b_8.v" into library work
+Parsing module <compare16b_8>.
+Analyzing Verilog file "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/boolean16b_9.v" into library work
+Parsing module <boolean16b_9>.
+Analyzing Verilog file "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/adder16b_7.v" into library work
+Parsing module <adder16b_7>.
+Analyzing Verilog file "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/reset_conditioner_1.v" into library work
+Parsing module <reset_conditioner_1>.
+Analyzing Verilog file "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/multi_seven_seg_2.v" into library work
+Parsing module <multi_seven_seg_2>.
+Analyzing Verilog file "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/aluCompiled_3.v" into library work
+Parsing module <aluCompiled_3>.
+Analyzing Verilog file "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
+Parsing module <mojo_top_0>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <mojo_top_0>.
+
+Elaborating module <reset_conditioner_1>.
+
+Elaborating module <multi_seven_seg_2>.
+
+Elaborating module <counter_4>.
+
+Elaborating module <seven_seg_5>.
+
+Elaborating module <decoder_6>.
+
+Elaborating module <aluCompiled_3>.
+
+Elaborating module <adder16b_7>.
+
+Elaborating module <compare16b_8>.
+
+Elaborating module <boolean16b_9>.
+
+Elaborating module <shifter16b_10>.
+WARNING:HDLCompiler:1127 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 104: Assignment to M_alumodule_z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 106: Assignment to M_alumodule_n ignored, since the identifier is never used
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 162: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 182: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 202: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 222: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 242: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 262: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 282: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 302: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 322: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 342: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 362: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 382: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 410: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 430: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 450: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 470: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 490: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 518: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 538: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 558: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 578: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 598: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 618: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 638: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 666: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 686: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 706: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 726: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 746: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 766: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 786: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 806: Result of 16-bit expression is truncated to fit in 8-bit target.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <mojo_top_0>.
+    Related source file is "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v".
+WARNING:Xst:647 - Input <io_button<1:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" line 99: Output port <z> of the instance <alumodule> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/mojo_top_0.v" line 99: Output port <n> of the instance <alumodule> is unconnected or connected to loadless signal.
+    Found 6-bit register for signal <M_state_q>.
+    Found 30-bit register for signal <M_counter_q>.
+    Found finite state machine <FSM_0> for signal <M_state_q>.
+    -----------------------------------------------------------------------
+    | States             | 37                                             |
+    | Transitions        | 113                                            |
+    | Inputs             | 28                                             |
+    | Outputs            | 60                                             |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | M_reset_cond_out (positive)                    |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000000                                         |
+    | Power Up State     | 000000                                         |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 16-bit adder for signal <M_alumodule_alu[15]_GND_1_o_add_308_OUT> created at line 803.
+    Found 30-bit adder for signal <M_counter_q[29]_GND_1_o_add_318_OUT> created at line 821.
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 109
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 109
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 109
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 109
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 109
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 109
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  30 D-type flip-flop(s).
+	inferred 106 Multiplexer(s).
+	inferred   6 Tristate(s).
+	inferred   1 Finite State Machine(s).
+Unit <mojo_top_0> synthesized.
+
+Synthesizing Unit <reset_conditioner_1>.
+    Related source file is "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/reset_conditioner_1.v".
+    Found 4-bit register for signal <M_stage_q>.
+    Summary:
+	inferred   4 D-type flip-flop(s).
+Unit <reset_conditioner_1> synthesized.
+
+Synthesizing Unit <multi_seven_seg_2>.
+    Related source file is "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/multi_seven_seg_2.v".
+    Found 4-bit adder for signal <M_ctr_value[1]_GND_3_o_add_0_OUT> created at line 48.
+    Found 31-bit shifter logical right for signal <n0010> created at line 48
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Combinational logic shifter(s).
+Unit <multi_seven_seg_2> synthesized.
+
+Synthesizing Unit <counter_4>.
+    Related source file is "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/counter_4.v".
+    Found 10-bit register for signal <M_ctr_q>.
+    Found 10-bit adder for signal <M_ctr_q[9]_GND_4_o_add_0_OUT> created at line 35.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  10 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <counter_4> synthesized.
+
+Synthesizing Unit <seven_seg_5>.
+    Related source file is "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/seven_seg_5.v".
+    Found 16x7-bit Read Only RAM for signal <segs>
+    Summary:
+	inferred   1 RAM(s).
+Unit <seven_seg_5> synthesized.
+
+Synthesizing Unit <decoder_6>.
+    Related source file is "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/decoder_6.v".
+    Summary:
+	no macro.
+Unit <decoder_6> synthesized.
+
+Synthesizing Unit <aluCompiled_3>.
+    Related source file is "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/aluCompiled_3.v".
+    Found 16-bit 4-to-1 multiplexer for signal <alu> created at line 86.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <aluCompiled_3> synthesized.
+
+Synthesizing Unit <adder16b_7>.
+    Related source file is "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/adder16b_7.v".
+WARNING:Xst:647 - Input <alufn<5:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16-bit subtractor for signal <subber> created at line 34.
+    Found 16-bit adder for signal <a[15]_b[15]_add_0_OUT> created at line 29.
+    Found 16x16-bit multiplier for signal <n0041> created at line 39.
+    Found 16-bit 4-to-1 multiplexer for signal <adder> created at line 27.
+    Found 1-bit 4-to-1 multiplexer for signal <overflow> created at line 27.
+    Summary:
+	inferred   1 Multiplier(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   2 Multiplexer(s).
+Unit <adder16b_7> synthesized.
+
+Synthesizing Unit <div_16u_16u>.
+    Related source file is "".
+    Found 32-bit adder for signal <n0956> created at line 0.
+    Found 32-bit adder for signal <GND_10_o_b[15]_add_1_OUT> created at line 0.
+    Found 31-bit adder for signal <n0960> created at line 0.
+    Found 31-bit adder for signal <GND_10_o_b[15]_add_3_OUT> created at line 0.
+    Found 30-bit adder for signal <n0964> created at line 0.
+    Found 30-bit adder for signal <GND_10_o_b[15]_add_5_OUT> created at line 0.
+    Found 29-bit adder for signal <n0968> created at line 0.
+    Found 29-bit adder for signal <GND_10_o_b[15]_add_7_OUT> created at line 0.
+    Found 28-bit adder for signal <n0972> created at line 0.
+    Found 28-bit adder for signal <GND_10_o_b[15]_add_9_OUT> created at line 0.
+    Found 27-bit adder for signal <n0976> created at line 0.
+    Found 27-bit adder for signal <GND_10_o_b[15]_add_11_OUT> created at line 0.
+    Found 26-bit adder for signal <n0980> created at line 0.
+    Found 26-bit adder for signal <GND_10_o_b[15]_add_13_OUT> created at line 0.
+    Found 25-bit adder for signal <n0984> created at line 0.
+    Found 25-bit adder for signal <GND_10_o_b[15]_add_15_OUT> created at line 0.
+    Found 24-bit adder for signal <n0988> created at line 0.
+    Found 24-bit adder for signal <GND_10_o_b[15]_add_17_OUT> created at line 0.
+    Found 23-bit adder for signal <n0992> created at line 0.
+    Found 23-bit adder for signal <GND_10_o_b[15]_add_19_OUT> created at line 0.
+    Found 22-bit adder for signal <n0996> created at line 0.
+    Found 22-bit adder for signal <GND_10_o_b[15]_add_21_OUT> created at line 0.
+    Found 21-bit adder for signal <n1000> created at line 0.
+    Found 21-bit adder for signal <GND_10_o_b[15]_add_23_OUT> created at line 0.
+    Found 20-bit adder for signal <n1004> created at line 0.
+    Found 20-bit adder for signal <GND_10_o_b[15]_add_25_OUT> created at line 0.
+    Found 19-bit adder for signal <n1008> created at line 0.
+    Found 19-bit adder for signal <GND_10_o_b[15]_add_27_OUT> created at line 0.
+    Found 18-bit adder for signal <n1012> created at line 0.
+    Found 18-bit adder for signal <GND_10_o_b[15]_add_29_OUT> created at line 0.
+    Found 17-bit adder for signal <n1016> created at line 0.
+    Found 17-bit adder for signal <GND_10_o_b[15]_add_31_OUT> created at line 0.
+    Found 32-bit comparator lessequal for signal <BUS_0001> created at line 0
+    Found 31-bit comparator lessequal for signal <BUS_0002> created at line 0
+    Found 30-bit comparator lessequal for signal <BUS_0003> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0004> created at line 0
+    Found 28-bit comparator lessequal for signal <BUS_0005> created at line 0
+    Found 27-bit comparator lessequal for signal <BUS_0006> created at line 0
+    Found 26-bit comparator lessequal for signal <BUS_0007> created at line 0
+    Found 25-bit comparator lessequal for signal <BUS_0008> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0009> created at line 0
+    Found 23-bit comparator lessequal for signal <BUS_0010> created at line 0
+    Found 22-bit comparator lessequal for signal <BUS_0011> created at line 0
+    Found 21-bit comparator lessequal for signal <BUS_0012> created at line 0
+    Found 20-bit comparator lessequal for signal <BUS_0013> created at line 0
+    Found 19-bit comparator lessequal for signal <BUS_0014> created at line 0
+    Found 18-bit comparator lessequal for signal <BUS_0015> created at line 0
+    Found 17-bit comparator lessequal for signal <BUS_0016> created at line 0
+    Found 16-bit comparator lessequal for signal <BUS_0017> created at line 0
+    Summary:
+	inferred  32 Adder/Subtractor(s).
+	inferred  17 Comparator(s).
+	inferred 241 Multiplexer(s).
+Unit <div_16u_16u> synthesized.
+
+Synthesizing Unit <compare16b_8>.
+    Related source file is "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/compare16b_8.v".
+WARNING:Xst:647 - Input <alufn<0:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <alufn<5:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16-bit 4-to-1 multiplexer for signal <cmp> created at line 20.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <compare16b_8> synthesized.
+
+Synthesizing Unit <boolean16b_9>.
+    Related source file is "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/boolean16b_9.v".
+WARNING:Xst:647 - Input <alufn<5:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 3-bit adder for signal <n0278[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0281[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0284[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0287[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0290[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0293[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0296[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0299[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0302[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0305[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0308[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0311[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0314[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0317[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0320[2:0]> created at line 23.
+    Found 3-bit adder for signal <n0323[2:0]> created at line 23.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0537> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0544> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0551> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0558> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0565> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0572> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0579> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0586> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0593> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0600> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0607> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0614> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0621> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0628> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0635> created at line 11.
+    Found 1-bit 4-to-1 multiplexer for signal <_n0642> created at line 11.
+    Summary:
+	inferred  16 Adder/Subtractor(s).
+	inferred  32 Multiplexer(s).
+Unit <boolean16b_9> synthesized.
+
+Synthesizing Unit <shifter16b_10>.
+    Related source file is "D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/sources_1/imports/verilog/shifter16b_10.v".
+WARNING:Xst:647 - Input <alufn<5:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <b<15:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16-bit shifter logical left for signal <a[15]_b[3]_shift_left_0_OUT> created at line 21
+    Found 16-bit shifter logical right for signal <a[15]_b[3]_shift_right_1_OUT> created at line 24
+    Found 16-bit shifter arithmetic right for signal <a[15]_b[3]_shift_right_2_OUT> created at line 27
+    Found 16-bit 4-to-1 multiplexer for signal <shift> created at line 19.
+    Summary:
+	inferred   1 Multiplexer(s).
+	inferred   3 Combinational logic shifter(s).
+Unit <shifter16b_10> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 16x7-bit single-port Read Only RAM                    : 1
+# Multipliers                                          : 1
+ 16x16-bit multiplier                                  : 1
+# Adders/Subtractors                                   : 54
+ 10-bit adder                                          : 1
+ 16-bit adder                                          : 2
+ 16-bit subtractor                                     : 1
+ 17-bit adder                                          : 2
+ 18-bit adder                                          : 2
+ 19-bit adder                                          : 2
+ 20-bit adder                                          : 2
+ 21-bit adder                                          : 2
+ 22-bit adder                                          : 2
+ 23-bit adder                                          : 2
+ 24-bit adder                                          : 2
+ 25-bit adder                                          : 2
+ 26-bit adder                                          : 2
+ 27-bit adder                                          : 2
+ 28-bit adder                                          : 2
+ 29-bit adder                                          : 2
+ 3-bit adder                                           : 16
+ 30-bit adder                                          : 3
+ 31-bit adder                                          : 2
+ 32-bit adder                                          : 2
+ 4-bit adder                                           : 1
+# Registers                                            : 3
+ 10-bit register                                       : 1
+ 30-bit register                                       : 1
+ 4-bit register                                        : 1
+# Comparators                                          : 17
+ 16-bit comparator lessequal                           : 1
+ 17-bit comparator lessequal                           : 1
+ 18-bit comparator lessequal                           : 1
+ 19-bit comparator lessequal                           : 1
+ 20-bit comparator lessequal                           : 1
+ 21-bit comparator lessequal                           : 1
+ 22-bit comparator lessequal                           : 1
+ 23-bit comparator lessequal                           : 1
+ 24-bit comparator lessequal                           : 1
+ 25-bit comparator lessequal                           : 1
+ 26-bit comparator lessequal                           : 1
+ 27-bit comparator lessequal                           : 1
+ 28-bit comparator lessequal                           : 1
+ 29-bit comparator lessequal                           : 1
+ 30-bit comparator lessequal                           : 1
+ 31-bit comparator lessequal                           : 1
+ 32-bit comparator lessequal                           : 1
+# Multiplexers                                         : 385
+ 1-bit 2-to-1 multiplexer                              : 256
+ 1-bit 4-to-1 multiplexer                              : 17
+ 10-bit 2-to-1 multiplexer                             : 1
+ 16-bit 2-to-1 multiplexer                             : 1
+ 16-bit 4-to-1 multiplexer                             : 4
+ 24-bit 2-to-1 multiplexer                             : 26
+ 30-bit 2-to-1 multiplexer                             : 80
+# Logic shifters                                       : 4
+ 16-bit shifter arithmetic right                       : 1
+ 16-bit shifter logical left                           : 1
+ 16-bit shifter logical right                          : 1
+ 31-bit shifter logical right                          : 1
+# Tristates                                            : 6
+ 1-bit tristate buffer                                 : 6
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <counter_4>.
+The following registers are absorbed into counter <M_ctr_q>: 1 register on signal <M_ctr_q>.
+Unit <counter_4> synthesized (advanced).
+
+Synthesizing (advanced) Unit <seven_seg_5>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_segs> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 7-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <char>          |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <segs>          |          |
+    -----------------------------------------------------------------------
+Unit <seven_seg_5> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 16x7-bit single-port distributed Read Only RAM        : 1
+# Multipliers                                          : 1
+ 16x16-bit multiplier                                  : 1
+# Adders/Subtractors                                   : 37
+ 16-bit adder                                          : 2
+ 16-bit adder carry in                                 : 16
+ 16-bit subtractor                                     : 1
+ 3-bit adder                                           : 16
+ 30-bit adder                                          : 1
+ 4-bit adder                                           : 1
+# Counters                                             : 1
+ 10-bit up counter                                     : 1
+# Registers                                            : 34
+ Flip-Flops                                            : 34
+# Comparators                                          : 17
+ 16-bit comparator lessequal                           : 1
+ 17-bit comparator lessequal                           : 1
+ 18-bit comparator lessequal                           : 1
+ 19-bit comparator lessequal                           : 1
+ 20-bit comparator lessequal                           : 1
+ 21-bit comparator lessequal                           : 1
+ 22-bit comparator lessequal                           : 1
+ 23-bit comparator lessequal                           : 1
+ 24-bit comparator lessequal                           : 1
+ 25-bit comparator lessequal                           : 1
+ 26-bit comparator lessequal                           : 1
+ 27-bit comparator lessequal                           : 1
+ 28-bit comparator lessequal                           : 1
+ 29-bit comparator lessequal                           : 1
+ 30-bit comparator lessequal                           : 1
+ 31-bit comparator lessequal                           : 1
+ 32-bit comparator lessequal                           : 1
+# Multiplexers                                         : 384
+ 1-bit 2-to-1 multiplexer                              : 256
+ 1-bit 4-to-1 multiplexer                              : 17
+ 16-bit 2-to-1 multiplexer                             : 1
+ 16-bit 4-to-1 multiplexer                             : 4
+ 24-bit 2-to-1 multiplexer                             : 26
+ 30-bit 2-to-1 multiplexer                             : 80
+# Logic shifters                                       : 4
+ 16-bit shifter arithmetic right                       : 1
+ 16-bit shifter logical left                           : 1
+ 16-bit shifter logical right                          : 1
+ 31-bit shifter logical right                          : 1
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <M_state_q[1:6]> with gray encoding.
+--------------------
+ State  | Encoding
+--------------------
+ 000000 | 000000
+ 011100 | 000001
+ 010100 | 000011
+ 001110 | 000010
+ 000001 | 000110
+ 001101 | 000111
+ 000010 | 000101
+ 000011 | 000100
+ 000100 | 001100
+ 000101 | 001101
+ 000110 | 001111
+ 000111 | 001110
+ 001000 | 001010
+ 001001 | 001011
+ 001010 | 001001
+ 001011 | 001000
+ 001100 | 011000
+ 010011 | 011001
+ 001111 | 011011
+ 010000 | 011010
+ 010001 | 011110
+ 010010 | 011111
+ 011011 | 011101
+ 010101 | 011100
+ 010110 | 010100
+ 010111 | 010101
+ 011000 | 010111
+ 011001 | 010110
+ 011010 | 010010
+ 100100 | 010011
+ 011101 | 010001
+ 011110 | 010000
+ 011111 | 110000
+ 100000 | 110001
+ 100001 | 110011
+ 100010 | 110010
+ 100011 | 110110
+--------------------
+WARNING:Xst:2677 - Node <M_counter_q_28> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <M_counter_q_29> of sequential type is unconnected in block <mojo_top_0>.
+
+Optimizing unit <mojo_top_0> ...
+
+Optimizing unit <adder16b_7> ...
+
+Optimizing unit <div_16u_16u> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 16.
+FlipFlop M_state_q_FSM_FFd1 has been replicated 2 time(s)
+FlipFlop M_state_q_FSM_FFd2 has been replicated 1 time(s)
+FlipFlop M_state_q_FSM_FFd3 has been replicated 1 time(s)
+FlipFlop M_state_q_FSM_FFd4 has been replicated 1 time(s)
+FlipFlop M_state_q_FSM_FFd5 has been replicated 2 time(s)
+FlipFlop M_state_q_FSM_FFd6 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+Processing Unit <mojo_top_0> :
+INFO:Xst:741 - HDL ADVISOR - A 4-bit shift register was found for signal <reset_cond/M_stage_q_3> and currently occupies 4 logic cells (2 slices). Removing the set/reset logic would take advantage of SRL32 (and derived) primitives and reduce this to 1 logic cells (1 slices). Evaluate if the set/reset can be removed for this simple shift register. The majority of simple pipeline structures do not need to be set/reset operationally.
+Unit <mojo_top_0> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 56
+ Flip-Flops                                            : 56
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 56    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 55.065ns (Maximum Frequency: 18.160MHz)
+   Minimum input arrival time before clock: 7.591ns
+   Maximum output required time after clock: 56.581ns
+   Maximum combinational path delay: No path found
+
+=========================================================================
+[Mon Nov 04 16:25:27 2019] synth_1 finished
+wait_on_run: Time (s): elapsed = 00:00:20 . Memory (MB): peak = 142.527 ; gain = 0.000
+# launch_runs -runs impl_1
+Release 14.7 - ngc2edif P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design mojo_top_0.ngc ...
+WARNING:NetListWriters:298 - No output is written to mojo_top_0.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:304 - Port bus b<6 : 0> on block div_16u_16u is not
+   reconstructed, because there are some missing bus pins.
+WARNING:NetListWriters:304 - Port bus a<15 : 0> on block div_16u_16u is not
+   reconstructed, because there are some missing bus pins.
+WARNING:NetListWriters:306 - Signal bus
+   Madd_GND_10_o_b[15]_add_11_OUT_Madd_Madd_cy<14 : 11> on block div_16u_16u is
+   not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:304 - Port bus a<15 : 0> on block aluCompiled_3 is not
+   reconstructed, because there are some missing bus pins.
+WARNING:NetListWriters:304 - Port bus b<6 : 0> on block aluCompiled_3 is not
+   reconstructed, because there are some missing bus pins.
+WARNING:NetListWriters:306 - Signal bus a[15]_b[15]_div_6_OUT<15 : 1> on block
+   aluCompiled_3 is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus a[15]_b[15]_add_0_OUT<15 : 0> on block
+   aluCompiled_3 is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus n0041<15 : 0> on block aluCompiled_3 is
+   not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus M_adderalu_add<4 : 2> on block
+   aluCompiled_3 is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus _n0611<44 : 16> on block mojo_top_0 is
+   not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus M_state_q__n0611<40 : 23> on block
+   mojo_top_0 is not reconstructed, because there are some missing bus signals.
+  finished :Prep
+Writing EDIF netlist file mojo_top_0.edif ...
+ngc2edif: Total memory usage is 4315540 kilobytes
+
+Parsing EDIF File [D:/Alchitry/ALU/work/planAhead/ALU/ALU.data/cache/mojo_top_0_ngc_zx.edif]
+Finished Parsing EDIF File [D:/Alchitry/ALU/work/planAhead/ALU/ALU.data/cache/mojo_top_0_ngc_zx.edif]
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Loading clock regions from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
+Loading clock buffers from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockBuffers.xml
+Loading package pin functions from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/tqg144/Package.xml
+Loading io standards from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : D:/Programs/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<23>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:49]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<23>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:49]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<23>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:49]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<22>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:50]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<22>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:50]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<22>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:50]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<21>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:51]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<21>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:51]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<21>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:51]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<20>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:52]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<20>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:52]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<20>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:52]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<19>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:53]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<19>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:53]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<19>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:53]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<18>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:54]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<18>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:54]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<18>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:54]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<17>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:55]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<17>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:55]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<17>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:55]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<16>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:56]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<16>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:56]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<16>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:56]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<15>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:58]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<15>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:58]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<15>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:58]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<14>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:59]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<14>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:59]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<14>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:59]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<13>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:60]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<13>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:60]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<13>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:60]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<12>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:61]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<12>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:61]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<12>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:61]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<11>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:62]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<11>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:62]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<11>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:62]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<10>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:63]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<10>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:63]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<10>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:63]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<9>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:64]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<9>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:64]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<9>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:64]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<8>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:65]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<8>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:65]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<8>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:65]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<7>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:67]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'io_dip<7>' [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf:67]
+INFO: [Common 17-14] Message 'Constraints 18-11' appears 50 times and further instances of the messages will be disabled. Use the Tcl command set_msg_limit to change the current settings.
+Finished Parsing UCF File [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/io_shield.ucf]
+Parsing UCF File [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/mojo.ucf]
+Finished Parsing UCF File [D:/Alchitry/ALU/work/planAhead/ALU/ALU.srcs/constrs_1/imports/components/mojo.ucf]
+INFO: [Designutils 20-20] Invalid constraints found, use command 'write_ucf -constraints invalid <file>' to save all the invalid constraints to a file
+[Mon Nov 04 16:25:31 2019] Launched impl_1...
+Run output will be captured here: D:/Alchitry/ALU/work/planAhead/ALU/ALU.runs/impl_1/runme.log
+# wait_on_run impl_1
+[Mon Nov 04 16:25:31 2019] Waiting for impl_1 to finish...
+
+*** Running ngdbuild
+    with args -intstyle ise -p xc6slx9tqg144-2 -dd _ngo -uc "mojo_top_0.ucf" "mojo_top_0.edf"
+
+
+Command Line: D:\Programs\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
+-intstyle ise -p xc6slx9tqg144-2 -dd _ngo -uc mojo_top_0.ucf mojo_top_0.edf
+
+Executing edif2ngd -quiet "mojo_top_0.edf" "_ngo\mojo_top_0.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading NGO file
+"D:/Alchitry/ALU/work/planAhead/ALU/ALU.runs/impl_1/_ngo/mojo_top_0.ngo" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "mojo_top_0.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+Done...
+
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Writing NGD file "mojo_top_0.ngd" ...
+Total REAL time to NGDBUILD completion:  6 sec
+Total CPU time to NGDBUILD completion:   3 sec
+
+Writing NGDBUILD log file "mojo_top_0.bld"...
+
+NGDBUILD done.
+
+*** Running map
+    with args -intstyle pa -w -pr b -mt on "mojo_top_0.ngd"
+
+Using target part "6slx9tqg144-2".
+INFO:Map:284 - Map is running with the multi-threading option on. Map currently
+   supports the use of up to 2 processors. Based on the the user options and
+   machine load, Map will use 2 processors during this run.
+Mapping design into LUTs...
+WARNING:MapLib:701 - Signal spi_channel[0] connected to top level port
+   spi_channel(0) has been removed.
+WARNING:MapLib:701 - Signal spi_channel[1] connected to top level port
+   spi_channel(1) has been removed.
+WARNING:MapLib:701 - Signal avr_rx connected to top level port avr_rx has been
+   removed.
+WARNING:MapLib:701 - Signal spi_channel[2] connected to top level port
+   spi_channel(2) has been removed.
+WARNING:MapLib:701 - Signal spi_miso connected to top level port spi_miso has
+   been removed.
+WARNING:MapLib:701 - Signal spi_channel[3] connected to top level port
+   spi_channel(3) has been removed.
+Running directed packing...
+Running delay-based LUT packing...
+Updating timing models...
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+Running timing-driven placement...
+Total REAL time at the beginning of Placer: 5 secs 
+Total CPU  time at the beginning of Placer: 4 secs 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:22eff182) REAL time: 5 secs 
+
+Phase 2.7  Design Feasibility Check
+Phase 2.7  Design Feasibility Check (Checksum:22eff182) REAL time: 5 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:22eff182) REAL time: 5 secs 
+
+Phase 4.2  Initial Placement for Architecture Specific Features
+
+Phase 4.2  Initial Placement for Architecture Specific Features
+(Checksum:b33d7532) REAL time: 7 secs 
+
+Phase 5.36  Local Placement Optimization
+Phase 5.36  Local Placement Optimization (Checksum:b33d7532) REAL time: 7 secs 
+
+Phase 6.30  Global Clock Region Assignment
+Phase 6.30  Global Clock Region Assignment (Checksum:b33d7532) REAL time: 7 secs 
+
+Phase 7.3  Local Placement Optimization
+Phase 7.3  Local Placement Optimization (Checksum:b33d7532) REAL time: 7 secs 
+
+Phase 8.5  Local Placement Optimization
+Phase 8.5  Local Placement Optimization (Checksum:b33d7532) REAL time: 7 secs 
+
+Phase 9.8  Global Placement
+.........................................................................
+..............................................................
+..........................................................................................................................................................................................................................
+.............................................
+Phase 9.8  Global Placement (Checksum:d5029961) REAL time: 10 secs 
+
+Phase 10.5  Local Placement Optimization
+Phase 10.5  Local Placement Optimization (Checksum:d5029961) REAL time: 10 secs 
+
+Phase 11.18  Placement Optimization
+Phase 11.18  Placement Optimization (Checksum:a88de561) REAL time: 16 secs 
+
+Phase 12.5  Local Placement Optimization
+Phase 12.5  Local Placement Optimization (Checksum:a88de561) REAL time: 16 secs 
+
+Phase 13.34  Placement Validation
+Phase 13.34  Placement Validation (Checksum:a88de561) REAL time: 16 secs 
+
+Total REAL time to Placer completion: 16 secs 
+Total CPU  time to Placer completion: 19 secs 
+Running post-placement packing...
+Writing output files...
+
+Design Summary:
+Number of errors:      0
+Number of warnings:    6
+Slice Logic Utilization:
+  Number of Slice Registers:                    56 out of  11,440    1%
+    Number used as Flip Flops:                  56
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                        847 out of   5,720   14%
+    Number used as logic:                      845 out of   5,720   14%
+      Number using O6 output only:             678
+      Number using O5 output only:              27
+      Number using O5 and O6:                  140
+      Number used as ROM:                        0
+    Number used as Memory:                       0 out of   1,440    0%
+    Number used exclusively as route-thrus:      2
+      Number with same-slice register load:      1
+      Number with same-slice carry load:         1
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                   271 out of   1,430   18%
+  Number of MUXCYs used:                       336 out of   2,860   11%
+  Number of LUT Flip Flop pairs used:          850
+    Number with an unused Flip Flop:           795 out of     850   93%
+    Number with an unused LUT:                   3 out of     850    1%
+    Number of fully used LUT-FF pairs:          52 out of     850    6%
+    Number of unique control sets:               3
+    Number of slice register sites lost
+      to control set restrictions:               8 out of  11,440    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        51 out of     102   50%
+    Number of LOCed IOBs:                       51 out of      51  100%
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         0 out of      32    0%
+  Number of RAMB8BWERs:                          0 out of      64    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       1 out of      16    6%
+    Number used as BUFGs:                        1
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
+  Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            1 out of      16    6%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       2    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                5.08
+
+Peak Memory Usage:  4574 MB
+Total REAL time to MAP completion:  17 secs 
+Total CPU time to MAP completion (all processors):   19 secs 
+
+Mapping completed.
+See MAP report file "mojo_top_0.mrp" for details.
+
+*** Running par
+    with args -intstyle pa "mojo_top_0.ncd" -w "mojo_top_0_routed.ncd" -mt on
+
+
+
+
+Constraints file: mojo_top_0.pcf.
+Loading device for application Rf_Device from file '6slx9.nph' in environment D:\Programs\Xilinx\14.7\ISE_DS\ISE\.
+   "mojo_top_0" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -2
+
+Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
+
+
+Device speed data version:  "PRODUCTION 1.23 2013-10-13".
+
+
+
+Device Utilization Summary:
+
+Slice Logic Utilization:
+  Number of Slice Registers:                    56 out of  11,440    1%
+    Number used as Flip Flops:                  56
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                        847 out of   5,720   14%
+    Number used as logic:                      845 out of   5,720   14%
+      Number using O6 output only:             678
+      Number using O5 output only:              27
+      Number using O5 and O6:                  140
+      Number used as ROM:                        0
+    Number used as Memory:                       0 out of   1,440    0%
+    Number used exclusively as route-thrus:      2
+      Number with same-slice register load:      1
+      Number with same-slice carry load:         1
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                   271 out of   1,430   18%
+  Number of MUXCYs used:                       336 out of   2,860   11%
+  Number of LUT Flip Flop pairs used:          850
+    Number with an unused Flip Flop:           795 out of     850   93%
+    Number with an unused LUT:                   3 out of     850    1%
+    Number of fully used LUT-FF pairs:          52 out of     850    6%
+    Number of slice register sites lost
+      to control set restrictions:               0 out of  11,440    0%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        51 out of     102   50%
+    Number of LOCed IOBs:                       51 out of      51  100%
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         0 out of      32    0%
+  Number of RAMB8BWERs:                          0 out of      64    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       1 out of      16    6%
+    Number used as BUFGs:                        1
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
+  Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            1 out of      16    6%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       2    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+
+Overall effort level (-ol):   Standard 
+Router effort level (-rl):    High 
+
+PAR will use up to 2 processors
+WARNING:Par:288 - The signal io_button(1)_IBUF has no load.  PAR will not attempt to route this signal.
+Starting Multi-threaded Router
+
+
+Phase  1  : 4783 unrouted;      REAL time: 3 secs 
+
+Phase  2  : 4493 unrouted;      REAL time: 3 secs 
+
+Phase  3  : 1600 unrouted;      REAL time: 4 secs 
+
+Phase  4  : 1985 unrouted; (Setup:856918, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+
+Updating file: mojo_top_0_routed.ncd with current fully routed design.
+
+Phase  5  : 0 unrouted; (Setup:871204, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
+
+Phase  6  : 0 unrouted; (Setup:873182, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+
+Phase  7  : 0 unrouted; (Setup:873182, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+
+Phase  8  : 0 unrouted; (Setup:873182, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+
+Phase  9  : 0 unrouted; (Setup:873182, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+
+Phase 10  : 0 unrouted; (Setup:849471, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+Total REAL time to Router completion: 11 secs 
+Total CPU time to Router completion (all processors): 16 secs 
+
+Generating "PAR" statistics.
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|           clk_BUFGP | BUFGMUX_X2Y11| No   |   22 |  0.074     |  1.502      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+* The fanout is the number of component pins not the individual BEL loads,
+for example SLICE loads not FF loads.
+
+Timing Score: 849471 (Setup: 849471, Hold: 0, Component Switching Limit: 0)
+
+WARNING:Par:468 - Your design did not meet timing.  The following are some suggestions to assist you to meet timing in your design.
+
+   Review the timing report using Timing Analyzer (In ISE select "Post-Place &
+   Route Static Timing Report"). Go to the failing constraint(s) and evaluate the failing paths for each constraint.
+
+   Try the Design Goal and Strategies for Timing Performance(In ISE select Project -> Design Goals & Strategies) to ensure the best options
+   are set in the tools for timing closure.
+
+   Increase the PAR Effort Level setting to "high"
+
+   Use the Xilinx "SmartXplorer" script to try special combinations of
+   options known to produce very good results.
+
+   Visit the Xilinx technical support web at http://support.xilinx.com and go to
+   either "Troubleshoot->Tech Tips->Timing & Constraints" or "
+   TechXclusives->Timing Closure" for tips and suggestions for meeting timing
+   in your design.
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+* TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |   -22.961ns|    42.961ns|      42|      849471
+   50%                                      | HOLD        |     0.460ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+
+
+1 constraint not met.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+WARNING:Par:283 - There are 1 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+
+Total REAL time to PAR completion: 12 secs 
+Total CPU time to PAR completion (all processors): 17 secs 
+
+Peak Memory Usage:  4536 MB
+
+Placer: Placement generated during map.
+Routing: Completed - No errors found.
+Timing: Completed - 42 errors found.
+
+Number of error messages: 0
+Number of warning messages: 4
+Number of info messages: 0
+
+Writing design to file mojo_top_0_routed.ncd
+
+
+
+PAR done!
+
+*** Running trce
+    with args -intstyle ise -o "mojo_top_0.twr" -v 30 -l 30 "mojo_top_0_routed.ncd" "mojo_top_0.pcf"
+
+Loading device for application Rf_Device from file '6slx9.nph' in environment
+D:\Programs\Xilinx\14.7\ISE_DS\ISE\.
+   "mojo_top_0" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -2
+
+Analysis completed Mon Nov 04 16:26:15 2019
+--------------------------------------------------------------------------------
+
+Generating Report ...
+
+Number of warnings: 0
+Total time: 3 secs 
+
+*** Running xdl
+    with args -secure -ncd2xdl -nopips "mojo_top_0_routed.ncd" "mojo_top_0_routed.xdl"
+
+Release 14.7 - xdl P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+WARNING:XDL:213 - The resulting xdl output will not have LUT equation strings or RAM INIT strings.
+Loading device for application Rf_Device from file '6slx9.nph' in environment D:\Programs\Xilinx\14.7\ISE_DS\ISE\.
+   "mojo_top_0" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -2
+Successfully converted design 'mojo_top_0_routed.ncd' to 'mojo_top_0_routed.xdl'.
+[Mon Nov 04 16:26:21 2019] impl_1 finished
+wait_on_run: Time (s): elapsed = 00:00:50 . Memory (MB): peak = 298.480 ; gain = 0.000
+# launch_runs impl_1 -to_step Bitgen
+[Mon Nov 04 16:26:22 2019] Launched impl_1...
+Run output will be captured here: D:/Alchitry/ALU/work/planAhead/ALU/ALU.runs/impl_1/runme.log
+# wait_on_run impl_1
+[Mon Nov 04 16:26:22 2019] Waiting for impl_1 to finish...
+
+*** Running ngdbuild
+    with args -intstyle ise -p xc6slx9tqg144-2 -dd _ngo -uc "mojo_top_0.ucf" "mojo_top_0.edf"
+
+
+Command Line: D:\Programs\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
+-intstyle ise -p xc6slx9tqg144-2 -dd _ngo -uc mojo_top_0.ucf mojo_top_0.edf
+
+Executing edif2ngd -quiet "mojo_top_0.edf" "_ngo\mojo_top_0.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading NGO file
+"D:/Alchitry/ALU/work/planAhead/ALU/ALU.runs/impl_1/_ngo/mojo_top_0.ngo" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "mojo_top_0.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+Done...
+
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Writing NGD file "mojo_top_0.ngd" ...
+Total REAL time to NGDBUILD completion:  6 sec
+Total CPU time to NGDBUILD completion:   3 sec
+
+Writing NGDBUILD log file "mojo_top_0.bld"...
+
+NGDBUILD done.
+
+*** Running map
+    with args -intstyle pa -w -pr b -mt on "mojo_top_0.ngd"
+
+Using target part "6slx9tqg144-2".
+INFO:Map:284 - Map is running with the multi-threading option on. Map currently
+   supports the use of up to 2 processors. Based on the the user options and
+   machine load, Map will use 2 processors during this run.
+Mapping design into LUTs...
+WARNING:MapLib:701 - Signal spi_channel[0] connected to top level port
+   spi_channel(0) has been removed.
+WARNING:MapLib:701 - Signal spi_channel[1] connected to top level port
+   spi_channel(1) has been removed.
+WARNING:MapLib:701 - Signal avr_rx connected to top level port avr_rx has been
+   removed.
+WARNING:MapLib:701 - Signal spi_channel[2] connected to top level port
+   spi_channel(2) has been removed.
+WARNING:MapLib:701 - Signal spi_miso connected to top level port spi_miso has
+   been removed.
+WARNING:MapLib:701 - Signal spi_channel[3] connected to top level port
+   spi_channel(3) has been removed.
+Running directed packing...
+Running delay-based LUT packing...
+Updating timing models...
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+Running timing-driven placement...
+Total REAL time at the beginning of Placer: 5 secs 
+Total CPU  time at the beginning of Placer: 4 secs 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:22eff182) REAL time: 5 secs 
+
+Phase 2.7  Design Feasibility Check
+Phase 2.7  Design Feasibility Check (Checksum:22eff182) REAL time: 5 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:22eff182) REAL time: 5 secs 
+
+Phase 4.2  Initial Placement for Architecture Specific Features
+
+Phase 4.2  Initial Placement for Architecture Specific Features
+(Checksum:b33d7532) REAL time: 7 secs 
+
+Phase 5.36  Local Placement Optimization
+Phase 5.36  Local Placement Optimization (Checksum:b33d7532) REAL time: 7 secs 
+
+Phase 6.30  Global Clock Region Assignment
+Phase 6.30  Global Clock Region Assignment (Checksum:b33d7532) REAL time: 7 secs 
+
+Phase 7.3  Local Placement Optimization
+Phase 7.3  Local Placement Optimization (Checksum:b33d7532) REAL time: 7 secs 
+
+Phase 8.5  Local Placement Optimization
+Phase 8.5  Local Placement Optimization (Checksum:b33d7532) REAL time: 7 secs 
+
+Phase 9.8  Global Placement
+.........................................................................
+..............................................................
+..........................................................................................................................................................................................................................
+.............................................
+Phase 9.8  Global Placement (Checksum:d5029961) REAL time: 10 secs 
+
+Phase 10.5  Local Placement Optimization
+Phase 10.5  Local Placement Optimization (Checksum:d5029961) REAL time: 10 secs 
+
+Phase 11.18  Placement Optimization
+Phase 11.18  Placement Optimization (Checksum:a88de561) REAL time: 16 secs 
+
+Phase 12.5  Local Placement Optimization
+Phase 12.5  Local Placement Optimization (Checksum:a88de561) REAL time: 16 secs 
+
+Phase 13.34  Placement Validation
+Phase 13.34  Placement Validation (Checksum:a88de561) REAL time: 16 secs 
+
+Total REAL time to Placer completion: 16 secs 
+Total CPU  time to Placer completion: 19 secs 
+Running post-placement packing...
+Writing output files...
+
+Design Summary:
+Number of errors:      0
+Number of warnings:    6
+Slice Logic Utilization:
+  Number of Slice Registers:                    56 out of  11,440    1%
+    Number used as Flip Flops:                  56
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                        847 out of   5,720   14%
+    Number used as logic:                      845 out of   5,720   14%
+      Number using O6 output only:             678
+      Number using O5 output only:              27
+      Number using O5 and O6:                  140
+      Number used as ROM:                        0
+    Number used as Memory:                       0 out of   1,440    0%
+    Number used exclusively as route-thrus:      2
+      Number with same-slice register load:      1
+      Number with same-slice carry load:         1
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                   271 out of   1,430   18%
+  Number of MUXCYs used:                       336 out of   2,860   11%
+  Number of LUT Flip Flop pairs used:          850
+    Number with an unused Flip Flop:           795 out of     850   93%
+    Number with an unused LUT:                   3 out of     850    1%
+    Number of fully used LUT-FF pairs:          52 out of     850    6%
+    Number of unique control sets:               3
+    Number of slice register sites lost
+      to control set restrictions:               8 out of  11,440    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        51 out of     102   50%
+    Number of LOCed IOBs:                       51 out of      51  100%
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         0 out of      32    0%
+  Number of RAMB8BWERs:                          0 out of      64    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       1 out of      16    6%
+    Number used as BUFGs:                        1
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
+  Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            1 out of      16    6%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       2    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                5.08
+
+Peak Memory Usage:  4574 MB
+Total REAL time to MAP completion:  17 secs 
+Total CPU time to MAP completion (all processors):   19 secs 
+
+Mapping completed.
+See MAP report file "mojo_top_0.mrp" for details.
+
+*** Running par
+    with args -intstyle pa "mojo_top_0.ncd" -w "mojo_top_0_routed.ncd" -mt on
+
+
+
+
+Constraints file: mojo_top_0.pcf.
+Loading device for application Rf_Device from file '6slx9.nph' in environment D:\Programs\Xilinx\14.7\ISE_DS\ISE\.
+   "mojo_top_0" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -2
+
+Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
+
+
+Device speed data version:  "PRODUCTION 1.23 2013-10-13".
+
+
+
+Device Utilization Summary:
+
+Slice Logic Utilization:
+  Number of Slice Registers:                    56 out of  11,440    1%
+    Number used as Flip Flops:                  56
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                        847 out of   5,720   14%
+    Number used as logic:                      845 out of   5,720   14%
+      Number using O6 output only:             678
+      Number using O5 output only:              27
+      Number using O5 and O6:                  140
+      Number used as ROM:                        0
+    Number used as Memory:                       0 out of   1,440    0%
+    Number used exclusively as route-thrus:      2
+      Number with same-slice register load:      1
+      Number with same-slice carry load:         1
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                   271 out of   1,430   18%
+  Number of MUXCYs used:                       336 out of   2,860   11%
+  Number of LUT Flip Flop pairs used:          850
+    Number with an unused Flip Flop:           795 out of     850   93%
+    Number with an unused LUT:                   3 out of     850    1%
+    Number of fully used LUT-FF pairs:          52 out of     850    6%
+    Number of slice register sites lost
+      to control set restrictions:               0 out of  11,440    0%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        51 out of     102   50%
+    Number of LOCed IOBs:                       51 out of      51  100%
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         0 out of      32    0%
+  Number of RAMB8BWERs:                          0 out of      64    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       1 out of      16    6%
+    Number used as BUFGs:                        1
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
+  Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            1 out of      16    6%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       2    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+
+Overall effort level (-ol):   Standard 
+Router effort level (-rl):    High 
+
+PAR will use up to 2 processors
+WARNING:Par:288 - The signal io_button(1)_IBUF has no load.  PAR will not attempt to route this signal.
+Starting Multi-threaded Router
+
+
+Phase  1  : 4783 unrouted;      REAL time: 3 secs 
+
+Phase  2  : 4493 unrouted;      REAL time: 3 secs 
+
+Phase  3  : 1600 unrouted;      REAL time: 4 secs 
+
+Phase  4  : 1985 unrouted; (Setup:856918, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+
+Updating file: mojo_top_0_routed.ncd with current fully routed design.
+
+Phase  5  : 0 unrouted; (Setup:871204, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
+
+Phase  6  : 0 unrouted; (Setup:873182, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+
+Phase  7  : 0 unrouted; (Setup:873182, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+
+Phase  8  : 0 unrouted; (Setup:873182, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+
+Phase  9  : 0 unrouted; (Setup:873182, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+
+Phase 10  : 0 unrouted; (Setup:849471, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+Total REAL time to Router completion: 11 secs 
+Total CPU time to Router completion (all processors): 16 secs 
+
+Generating "PAR" statistics.
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|           clk_BUFGP | BUFGMUX_X2Y11| No   |   22 |  0.074     |  1.502      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+* The fanout is the number of component pins not the individual BEL loads,
+for example SLICE loads not FF loads.
+
+Timing Score: 849471 (Setup: 849471, Hold: 0, Component Switching Limit: 0)
+
+WARNING:Par:468 - Your design did not meet timing.  The following are some suggestions to assist you to meet timing in your design.
+
+   Review the timing report using Timing Analyzer (In ISE select "Post-Place &
+   Route Static Timing Report"). Go to the failing constraint(s) and evaluate the failing paths for each constraint.
+
+   Try the Design Goal and Strategies for Timing Performance(In ISE select Project -> Design Goals & Strategies) to ensure the best options
+   are set in the tools for timing closure.
+
+   Increase the PAR Effort Level setting to "high"
+
+   Use the Xilinx "SmartXplorer" script to try special combinations of
+   options known to produce very good results.
+
+   Visit the Xilinx technical support web at http://support.xilinx.com and go to
+   either "Troubleshoot->Tech Tips->Timing & Constraints" or "
+   TechXclusives->Timing Closure" for tips and suggestions for meeting timing
+   in your design.
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+* TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |   -22.961ns|    42.961ns|      42|      849471
+   50%                                      | HOLD        |     0.460ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+
+
+1 constraint not met.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+WARNING:Par:283 - There are 1 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+
+Total REAL time to PAR completion: 12 secs 
+Total CPU time to PAR completion (all processors): 17 secs 
+
+Peak Memory Usage:  4536 MB
+
+Placer: Placement generated during map.
+Routing: Completed - No errors found.
+Timing: Completed - 42 errors found.
+
+Number of error messages: 0
+Number of warning messages: 4
+Number of info messages: 0
+
+Writing design to file mojo_top_0_routed.ncd
+
+
+
+PAR done!
+
+*** Running trce
+    with args -intstyle ise -o "mojo_top_0.twr" -v 30 -l 30 "mojo_top_0_routed.ncd" "mojo_top_0.pcf"
+
+Loading device for application Rf_Device from file '6slx9.nph' in environment
+D:\Programs\Xilinx\14.7\ISE_DS\ISE\.
+   "mojo_top_0" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -2
+
+Analysis completed Mon Nov 04 16:26:15 2019
+--------------------------------------------------------------------------------
+
+Generating Report ...
+
+Number of warnings: 0
+Total time: 3 secs 
+
+*** Running xdl
+    with args -secure -ncd2xdl -nopips "mojo_top_0_routed.ncd" "mojo_top_0_routed.xdl"
+
+Release 14.7 - xdl P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+WARNING:XDL:213 - The resulting xdl output will not have LUT equation strings or RAM INIT strings.
+Loading device for application Rf_Device from file '6slx9.nph' in environment D:\Programs\Xilinx\14.7\ISE_DS\ISE\.
+   "mojo_top_0" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -2
+Successfully converted design 'mojo_top_0_routed.ncd' to 'mojo_top_0_routed.xdl'.
+
+*** Running bitgen
+    with args "mojo_top_0_routed.ncd" "mojo_top_0.bit" "mojo_top_0.pcf" -g Binary:Yes -g Compress -w -intstyle pa
+
+[Mon Nov 04 16:26:37 2019] impl_1 finished
+wait_on_run: Time (s): elapsed = 00:00:15 . Memory (MB): peak = 298.480 ; gain = 0.000
+INFO: [Common 17-206] Exiting PlanAhead at Mon Nov 04 16:26:37 2019...
+INFO: [Common 17-83] Releasing license: PlanAhead
+
+Finished building project.
