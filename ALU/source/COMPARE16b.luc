@@ -1,0 +1,22 @@
+//Group 3-3 2019
+
+module compare16b (
+    input z, //input from ADDER16b
+    input v, //input from ADDER16b
+    input n, //input from ADDER16b
+    input alufn[6],
+    output cmp[16]
+  ) {
+  
+  always {
+    cmp = 16b0;
+  
+    case(alufn[2:1]) {//the deciding signal is alufn2:1
+      b01: cmp[0] = z; //CMPEQ
+      b10: cmp[0] = ~n&v | n&~v; //CMPLT
+      b11: cmp[0] = z | (~n&v | n&~v); //CMPLE
+      default: cmp[0] = b0; 
+    }
+    
+  }
+}

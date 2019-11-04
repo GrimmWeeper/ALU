@@ -1,0 +1,57 @@
+//Group 3-3 2019
+
+module aluCompiled (
+    input a[16], //signed 16b A input
+    input b[16], //signed 16b B input
+    input alufn[6],
+    
+//mojo_top needs to show these outputs somehow
+    output alu[16],
+    output z,
+    output v,
+    output n   
+  ) {
+
+//bring in the modules (module, name)
+adder16b adderalu;
+compare16b comparealu;
+boolean16b booleanalu;
+shifter16b shifteralu;
+
+  always {
+    //assign the inputs to each module
+    
+    //inputs for ADDER16b
+    adderalu.a = a;
+    adderalu.b = b;
+    adderalu.alufn = alufn;
+    
+    //inputs for COMPARE16b
+    comparealu.z = adderalu.z;
+    comparealu.v = adderalu.v;
+    comparealu.n = adderalu.n;
+    comparealu.alufn = alufn;
+    
+    //inputs for BOOLEAN16b
+    booleanalu.a = a;
+    booleanalu.b = b;
+    booleanalu.alufn = alufn;
+    
+    //inputs for SHIFTER16b
+    shifteralu.a = a;
+    shifteralu.b = b;
+    shifteralu.alufn = alufn;
+    
+    //to choose which output
+    case(alufn[5:4]){
+      b00: alu = adderalu.add;
+      b01: alu = booleanalu.boole;
+      b10: alu = shifteralu.shift;
+      b11: alu = comparealu.cmp;    
+      default: alu = 16b0;
+    }
+    z = adderalu.z;
+    v = adderalu.v;
+    n = adderalu.n;
+}
+}

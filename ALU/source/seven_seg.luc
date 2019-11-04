@@ -1,0 +1,28 @@
+module seven_seg (
+    input char[4],
+    output segs[7]
+  ) {
+ 
+  always {
+    case (char) {
+    
+      0: segs = 7b0111111; //Display digit '0'
+      1: segs = 7b0000110; //Display digit '1'
+      2: segs = 7b1011011; //Display digit '2'
+      3: segs = 7b1001111; //Display digit '3'
+      4: segs = 7b1100110; //Display digit '4'
+      5: segs = 7b1101101; //Display digit '5' & letter 'S'
+      6: segs = 7b1111101; //Display digit '6'
+      7: segs = 7b0000111; //Display digit '7'
+      8: segs = 7b1111111; //Display digit '8'
+      9: segs = 7b1100111; //Display digit '9'
+      10: segs = 7b1110111; //Display letter 'A'
+      11: segs = 7b1111100; //Display letter 'b'
+      12: segs = 7b0111001; //Display letter 'c'
+      13: segs = 7b0110001; //Display letter 'r'
+      14: segs = 7b1111001; //Display letter 'E'
+      
+      default: segs = 7b0000000;
+    }
+  }
+}

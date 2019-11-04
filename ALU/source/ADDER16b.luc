@@ -1,0 +1,49 @@
+//Group 3-3 2019
+
+module adder16b (
+    input a[16], //16bit signed A input  
+    input b[16], //16bit signed B input
+    input alufn[6], //alufn[5:0] where 0 selects if add or sub, 1 decides mul or add/sub
+    output add[16], //output as a signal
+    output z,
+    output v,
+    output n
+  ) {
+  
+sig adder[16]; //signals can be read and written
+sig subber[16]; //for z v n 
+sig overflow;
+  
+  always {
+      
+    case(alufn[1:0]){
+      b00: 
+        adder = a+b; //if 00 then add  
+        subber = a-b;
+        overflow = (~a[15] & ~b[15] & adder[15]) | (a[15] & b[15] & ~adder[15]);
+      b01: 
+        adder = a-b; //if 01 then subtract
+        subber = a-b;
+        overflow = (a[15] & ~b[15] & ~subber[15]) | (~a[15] & b[15] & subber[15]);
+      b10: 
+        adder = a*b;  //if 10 then multiply
+        subber = a-b;
+        overflow = (~a[15] & ~b[15] & adder[15]) | (a[15] & b[15] & ~adder[15]);
+      b11: 
+        adder = a/b; //if 11 then divide (Only works for positive division)
+        subber = a-b;
+        overflow = (~a[15] & ~b[15] & adder[15]) | (a[15] & b[15] & ~adder[15]);
+        
+      default: 
+        adder = a+b;
+        subber = a-b;
+        overflow = 0;
+          
+    }
+    z = ~|subber;
+    n = subber[15];
+    add = adder;
+    v = overflow;
+    //overflow from addition will be disregarded
+}
+}

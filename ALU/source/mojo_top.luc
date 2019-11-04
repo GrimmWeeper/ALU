@@ -1,0 +1,821 @@
+//Group 3-3 2019
+
+module mojo_top (
+
+
+    //for now we will put a b alufn as internal signals 
+    //need to change to manual input 16bits later for actual game
+    
+    //ALU computations are done in 16bits, only the 8 LSB are shown on the io_led
+    
+    input clk,              // 50MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    output spi_miso,        // AVR SPI MISO
+    output spi_channel [4], // AVR general purpose pins (used by default to select ADC channel)
+    output avr_rx,          // AVR RX (FPGA TX)
+    input io_button [5],    // 5 buttons on IO Shield
+    output io_led [3][8],    // 24 LEDs on IO Shield
+    output io_seg [8],      // 7-segment LEDs on IO Shield
+    output io_sel [4]      // Digit select on IO Shield
+  ) {
+  
+  sig rst;                  // reset signal
+  
+  .clk(clk) {
+    reset_conditioner reset_cond;
+    .rst(rst){
+      multi_seven_seg seg; // Instantiate the 4 digit-segments LED display module
+      //code to instantiate the seven segment led to show the fsm state (just follow the names in the fsm)
+      fsm state = {IDLE,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,AEC,AERR,B1,B2,B3,B4,BEC,BERR,S1,S2,S3,S4,S5,S6,SEC,SERR,C1,C2,C3,C4,C5,C6,C7,CEC,CERR}; //need to include FSM for compare 
+      dff counter[30];
+  }
+  }
+  const X = 27; // Constant used to control time before transitioning to next state (increase value to increase delay between states)
+  
+  //internal signals of 8 bits a, b, alu
+  sig a[16]; //8LSB to display on io_led
+  sig b[16];
+  sig alu[16];
+  sig alufn[6]; //represented by the buttons pressed
+  
+  //import alu module over
+  aluCompiled alumodule;
+    
+    
+  always {
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+    
+    led = 8h00;             // turn LEDs off
+    spi_miso = bz;          // not using SPI
+    spi_channel = bzzzz;    // not using flags
+    avr_rx = bz;            // not using serial port
+    
+    io_seg = 8hff;          // turn segments off
+    io_sel = 4hf;           // select no digits
+    
+    io_seg = ~seg.seg;      // connect segments to the driver
+    io_sel = ~seg.sel;      // connect digit select to the driver
+    seg.values = {4hf,4hf,4hf,4hf};   // turn off the 4 digits 7-segments display
+    
+
+    //io_led 0:7 to show alu output
+    //io_led 15:8 to show b input value
+    //io_led 23:16 to show a input value
+    
+    //Assign 16bit of 0 to initialise a,b and alufn
+    a = 16b0;
+    b = 16b0;
+    alufn = 16b0;
+    
+    //assigning inputs and outputs of alumodule
+    alumodule.a = a;
+    alumodule.b = b;
+    alumodule.alufn = alufn;
+    alu = alumodule.alu; 
+    
+    //display
+    io_led[2] = 0;
+    io_led[1] = 0;
+    io_led[0] = 0;
+    
+    case(state.q){
+    
+      state.IDLE:
+        counter.d = 0;
+        
+        //displays
+        seg.values = {4hb,4ha,4h5,4he}; //show 'bASE' on the 7 segment display
+        
+        if(io_button[0] == 1){ //Press the 'UP' button to enter the state to test for ADDER component
+          state.d = state.A1;
+        }
+        else if(io_button[4] == 1){ //Press the 'RIGHT' button to enter the state to test for BOOLEAN component
+          state.d = state.B1;
+        }
+        else if(io_button[2] == 1){ //Press the 'DOWN' button to enter the state to test for SHIFTER component
+          state.d = state.S1;
+        }
+        else if(io_button[3] == 1){ //Press the 'LEFT' button to enter the state to test for COMPARE component
+          state.d = state.C1;
+        }
+        
+        
+      state.A1: //Add: 15+23=38
+        alumodule.alufn = 6b0;
+        alumodule.a = 16b0000000000001111; //15
+        alumodule.b = 16b0000000000010111; //23
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00001111;
+        io_led[1] = 8b00011001;
+        io_led[0] = alu;
+        seg.values = {4hf,4ha,4h0,4h1}; //7seg show A01
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000100110){
+          state.d = state.A2;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000100110){
+          state.d = state.AERR;
+          counter.d = 0;
+        }
+        
+      state.A2: //Add: 23+(-15)=8
+        alumodule.alufn = 6b0;
+        alumodule.a = 16b0000000000010111; //23
+        alumodule.b = 16b1111111111110001; //-15
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010111;
+        io_led[1] = 8b11110001;
+        io_led[0] = alu;
+        seg.values = {4hf,4ha,4h0,4h2}; //7seg show A02
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000001000){
+          state.d = state.A3;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000001000){
+          state.d = state.AERR;
+          counter.d = 0;
+        }
+      
+      state.A3: //Add: 15+(-23)=-8
+        alumodule.alufn = 6b0;
+        alumodule.a = 16b0000000000001111; //15
+        alumodule.b = 16b1111111111101001; //-23
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00001111;
+        io_led[1] = 8b11101001;
+        io_led[0] = alu;
+        seg.values = {4hf,4ha,4h0,4h3}; //7seg show A03
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b1111111111111000){
+          state.d = state.A4;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b1111111111111000){
+          state.d = state.AERR;
+          counter.d = 0;
+        }
+        
+      state.A4: //Add: -15+(-23)=-38
+        alumodule.alufn = 6b0;
+        alumodule.a = 16b1111111111110001; //-15
+        alumodule.b = 16b1111111111101001; //-23
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b11110001;
+        io_led[1] = 8b11101001;
+        io_led[0] = alu;
+        seg.values = {4hf,4ha,4h0,4h4}; //7seg show A04
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b1111111111011010){
+          state.d = state.A5;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b1111111111011010){
+          state.d = state.AERR;
+          counter.d = 0;
+        }
+        
+      state.A5: //Sub: -15-(-23)=8
+        alumodule.alufn = 6b000001;
+        alumodule.a = 16b1111111111110001; //-15
+        alumodule.b = 16b1111111111101001; //-23
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b11110001;
+        io_led[1] = 8b11101001;
+        io_led[0] = alu;
+        seg.values = {4hf,4ha,4h0,4h5}; //7seg show A05
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000001000){
+          state.d = state.A6;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu !=16b0000000000001000){
+          state.d = state.AERR;
+          counter.d = 0;
+        }
+        
+      state.A6: //Mul: 7*5=35
+        alumodule.alufn = 6b000010;
+        alumodule.a = 16b0000000000000111; //7
+        alumodule.b = 16b0000000000000101; //5
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00000111;
+        io_led[1] = 8b00000101;
+        io_led[0] = alu;
+        seg.values = {4hf,4ha,4h0,4h6}; //7seg show A06  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000100011){
+          state.d = state.A7;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000100011){
+          state.d = state.AERR;
+          counter.d = 0;
+        }
+    
+        
+      state.A7: //Mod: 8%3=2  
+        alumodule.alufn = 6b000011;
+        alumodule.a = 16b0000000000001000; //8
+        alumodule.b = 16b0000000000000011; //3
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00001000;
+        io_led[1] = 8b00000011;
+        io_led[0] = alu;
+        seg.values = {4hf,4ha,4h0,4h7}; //7seg show A07
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000000010){
+          state.d = state.A8;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000000010){
+          state.d = state.AERR;
+          counter.d = 0;
+        }
+         
+                
+
+      state.A8: //Mul: -7*5=-35
+        alumodule.alufn = 6b000010;
+        alumodule.a = 16b1111111111111001; //-7
+        alumodule.b = 16b0000000000000101; //5
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b11111001;
+        io_led[1] = 8b00000101;
+        io_led[0] = alu;
+        seg.values = {4hf,4ha,4h0,4h8}; //7seg show A08
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b1111111111011101){
+          state.d = state.A9;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b1111111111011101){
+          state.d = state.AERR;
+          counter.d = 0;
+        }
+                
+      state.A9: //Mul: -7*-5=35
+        alumodule.alufn = 6b000010;
+        alumodule.a = 16b1111111111111001; //-7
+        alumodule.b = 16b1111111111111011; //-5
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b11111001;
+        io_led[1] = 8b11111011;
+        io_led[0] = alu;
+        seg.values = {4hf,4ha,4h0,4h9}; //7seg show A09
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000100011){
+          state.d = state.A10;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000100011){
+          state.d = state.AERR;
+          counter.d = 0;
+        }
+       
+      state.A10: //Add (Overflow): 32767 + 2 = 32769 (-32767)
+        alumodule.alufn = 6b0;
+        alumodule.a = 16b0111111111111111; //32767
+        alumodule.b = 16b0000000000000010; //2
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b11111111;
+        io_led[1] = 8b00000010;
+        io_led[0] = alu;
+        seg.values = {4hf,4ha,4h1,4h0}; //7seg show A10
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b1000000000000001 && alumodule.v == 1){ //Overflow is 1
+          state.d = state.A11;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b1000000000000001 && alumodule.v != 1){
+          state.d = state.AERR;
+          counter.d = 0;
+        }
+                
+      state.A11: //Subtract (Overflow): -32767 - 4 = -32771 (32765)
+        alumodule.alufn = 6b000001;
+        alumodule.a = 16b1000000000000001; //32767
+        alumodule.b = 16b0000000000000100; //4
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b11111111;
+        io_led[1] = 8b00000010;
+        io_led[0] = alu;
+        seg.values = {4hf,4ha,4h1,4h1}; //7seg show A11
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0111111111111101 && alumodule.v == 1){ //Overflow is 1
+          state.d = state.AEC;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0111111111111101 && alumodule.v != 1){
+          state.d = state.AERR;
+          counter.d = 0;
+        }
+                      
+      state.AEC: //Add: 15+23=/=39
+        alumodule.alufn = 6b0;
+        alumodule.a = 16b0000000000001111; //15
+        alumodule.b = 16b0000000000010111; //23
+        alu = alumodule.alu+1; //adding 1 to make a wrong result
+        
+        io_led[2] = 8b00001111;
+        io_led[1] = 8b00010111;
+        io_led[0] = alu;
+        seg.values = {4hf,4ha,4he,4hc}; //7seg show AEC
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000100110){
+          state.d = state.IDLE;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000100110){
+          state.d = state.AERR;
+          counter.d = 0;
+        }
+        
+      state.AERR: //Adder error state
+        seg.values = {4ha,4he,4hd,4hd}; //7seg show AErr
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1){
+          state.d = state.IDLE;
+          counter.d = 0;
+        }
+        
+      state.B1: //AND bitwise 17 and 23
+        alumodule.alufn = 6b011000;
+        alumodule.a = 16b0000000000010001; //17
+        alumodule.b = 16b0000000000010111; //23
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010001;
+        io_led[1] = 8b00010111;
+        io_led[0] = alu;
+        seg.values = {4hf,4hb,4h0,4h1};//7seg show B01  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000010001){
+          state.d = state.B2;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000010001){
+          state.d = state.BERR;
+          counter.d = 0;
+        }
+        
+      state.B2: //OR bitwise 17 or 23
+        alumodule.alufn = 6b011110;
+        alumodule.a = 16b0000000000010001; //17
+        alumodule.b = 16b0000000000010111; //23
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010001;
+        io_led[1] = 8b00010111;
+        io_led[0] = alu;
+        seg.values = {4hf,4hb,4h0,4h2}; //7seg show B02  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000010111){
+          state.d = state.B3;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000010111){
+          state.d = state.BERR;
+          counter.d = 0;
+        }
+        
+      state.B3: //XOR bitwise 17 xor 23
+        alumodule.alufn = 6b010110;
+        alumodule.a = 16b0000000000010001; //17
+        alumodule.b = 16b0000000000010111; //23
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010001;
+        io_led[1] = 8b00010111;
+        io_led[0] = alu;
+        seg.values = {4hf,4hb,4h0,4h3};//7seg show B03  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000000110){
+          state.d = state.B4;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000000110){
+          state.d = state.BERR;
+          counter.d = 0;
+        }
+        
+      state.B4: //'A' only
+        alumodule.alufn = 6b011010; 
+        alumodule.a = 16b0000000000010001; //17
+        alumodule.b = 16b0000000000010111; //23
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010001;
+        io_led[1] = 8b00010111;
+        io_led[0] = alu;
+        seg.values = {4hf,4hb,4h0,4h4}; //7seg show B04
+        counter.d = counter.q+1;
+        
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000010001){
+          state.d = state.BEC;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000010001){
+          state.d = state.BERR;
+          counter.d = 0;
+        }
+        
+      state.BEC: //error case test for AND using 16 and 23
+        alumodule.alufn = 6b011000;
+        alumodule.a = 16b0000000000010000; //16
+        alumodule.b = 16b0000000000010111; //23
+        alu = alumodule.alu+1; //intentional error
+        
+        io_led[2] = 8b00010000;
+        io_led[1] = 8b00010111;
+        io_led[0] = alu;
+        seg.values = {4hf,4hb,4he,4hc};//7seg show BEC  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000010000){
+          state.d = state.IDLE;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000010000){
+          state.d = state.BERR;
+          counter.d = 0;
+        }
+        
+      state.BERR: //boolean error state 
+        seg.values = {4hb,4he,4hd,4hd};//7seg show BERR       
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1){
+          state.d = state.IDLE;
+          counter.d = 0;
+        }
+        
+      state.S1: //17 shift left by 2 bits
+        alumodule.alufn = 6b100000;
+        alumodule.a = 16b0000000000010001; //17
+        alumodule.b = 16b0000000000000010; //shift by 2bits
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010001;
+        io_led[1] = 8b00000010;
+        io_led[0] = alu;
+        seg.values = {4hf,4h5,4h0,4h1}; //7seg show S01
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000001000100){
+          state.d = state.S2;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000001000100){
+          state.d = state.SERR;
+          counter.d = 0;
+        }
+        
+      state.S2: //-17 shift left by 2bits
+        alumodule.alufn = 6b100000;
+        alumodule.a = 16b1111111111101111; //-17
+        alumodule.b = 16b0000000000000010; //shift by 2bits
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b11101111;
+        io_led[1] = 8b00000010;
+        io_led[0] = alu;
+        seg.values = {4hf,4h5,4h0,4h2};//7seg show S02  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b1111111110111100){
+          state.d = state.S3;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b1111111110111100){
+          state.d = state.SERR;
+          counter.d = 0;
+        }
+        
+      state.S3: //23 shift right by 5bits
+        alumodule.alufn = 6b100001;
+        alumodule.a = 16b0000000000010111; //23
+        alumodule.b = 16b0000000000000101; //shift by 5bits
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010111;
+        io_led[1] = 8b00000101;
+        io_led[0] = alu;
+        seg.values = {4hf,4h5,4h0,4h3}; //7seg show S03  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000000000){
+          state.d = state.S4;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000000000){
+          state.d = state.SERR;
+          counter.d = 0;
+        }
+        
+      state.S4: //-23 shift right by 5bits
+        alumodule.alufn = 6b100001;
+        alumodule.a = 16b1111111111101001; //-23
+        alumodule.b = 16b0000000000000101; //shift by 5bits
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b11101001;
+        io_led[1] = 8b00000101;
+        io_led[0] = alu;
+        seg.values = {4hf,4h5,4h0,4h4};//7seg show S04  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000011111111111){
+          state.d = state.S5;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu!= 16b0000011111111111){
+          state.d = state.SERR;
+          counter.d = 0;
+        }
+        
+      state.S5: //78 shift right arithmetic by 5bits
+        alumodule.alufn = 6b100011;
+        alumodule.a = 16b0000000001001110; //78
+        alumodule.b = 16b0000000000000101; //shift by 5bits
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b01001110;
+        io_led[1] = 8b00000101;
+        io_led[0] = alu;
+        seg.values = {4hf,4h5,4h0,4h5}; //7seg show S05  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000000010){
+          state.d = state.S6;
+          counter.d = 0;
+        }
+        else if (counter.q[X] == 1 && alu != 16b0000000000000010){
+          state.d = state.SERR;
+          counter.d = 0;
+        }
+        
+      state.S6: //-78 shift right arithmetic by 5bits
+        alumodule.alufn = 6b100011;
+        alumodule.a = 16b1111111110110010; //-78
+        alumodule.b = 16b0000000000000101; //shift by 5bits
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b10110010;
+        io_led[1] = 8b00000101;
+        io_led[0] = alu;
+        seg.values = {4hf,4h5,4h0,4h6}; //7seg show S06  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b1111111111111101){
+          state.d = state.SEC;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu!= 16b1111111111111101){
+          state.d = state.SERR;
+          counter.d = 0;
+        }
+        
+      state.SEC: //shift error test: 17 shift left by 2bits +1 
+        alumodule.alufn = 6b100000;
+        alumodule.a = 16b0000000000010001; //17
+        alumodule.b = 16b0000000000000010; //shift by 2bits
+        alu = alumodule.alu+1; //intentional error
+        
+        io_led[2] = 8b00010001;
+        io_led[1] = 8b00000010;
+        io_led[0] = alu;
+        seg.values = {4hf,4h5,4he,4hc}; //7seg show SEC  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000001000100){
+          state.d = state.IDLE;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000001000100){
+          state.d = state.SERR;
+          counter.d = 0;
+        }
+        
+      state.SERR: //shifter error state  
+        seg.values = {4h5,4he,4hd,4hd}; //7seg show SERR
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1){
+          state.d = state.IDLE; 
+          counter.d = 0;
+        }
+        
+      state.C1: //17=17
+        alumodule.alufn = 6b110011;
+        alumodule.a = 16b0000000000010001; //17
+        alumodule.b = 16b0000000000010001; //17
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010001;
+        io_led[1] = 8b00010001;
+        io_led[0] = alu;
+        seg.values = {4hf,4hc,4h0,4h1}; //7seg show C01  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000000001){
+          state.d = state.C2;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000000001){
+          state.d = state.CERR;
+          counter.d = 0;
+        }
+        
+      state.C2: //17 =/= 18
+        alumodule.alufn = 6b110011;
+        alumodule.a = 16b0000000000010001; //17
+        alumodule.b = 16b0000000000010010; //18
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010001;
+        io_led[1] = 8b00010010;
+        io_led[0] = alu;
+        seg.values = {4hf,4hc,4h0,4h2}; //7seg show C02  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000000000){
+          state.d = state.C3;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000000000){
+          state.d = state.CERR;
+          counter.d = 0;
+        }
+        
+      state.C3: //17<18
+        alumodule.alufn = 6b110101;
+        alumodule.a = 16b0000000000010001; //17
+        alumodule.b = 16b0000000000010010; //18
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010001;
+        io_led[1] = 8b00010010;
+        io_led[0] = alu;
+        seg.values = {4hf,4hc,4h0,4h3}; //7seg show C03  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000000001){
+          state.d = state.C4;
+          counter.d = 0;
+        }
+        else if(counter.q[X] ==1 && alu != 16b0000000000000001){
+          state.d = state.CERR;
+          counter.d= 0;
+        }
+        
+      state.C4: // 19 </ 18
+        alumodule.alufn = 6b110101;
+        alumodule.a = 16b0000000000010011; //19
+        alumodule.b = 16b0000000000010010; //18
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010011;
+        io_led[1] = 8b00010010;
+        io_led[0] = alu;
+        seg.values = {4hf,4hc,4h0,4h4}; //7seg show C04  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000000000){
+          state.d = state.C5;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000000000){
+          state.d = state.CERR;
+          counter.d = 0;
+        }
+        
+      state.C5: //19 <= 20
+        alumodule.alufn = 6b110111;
+        alumodule.a = 16b0000000000010011; //19
+        alumodule.b = 16b0000000000010100; //20
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010011;
+        io_led[1] = 8b00010100;
+        io_led[0] = alu;
+        seg.values = {4hf,4hc,4h0,4h5}; //7seg show C05  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000000001){
+          state.d = state.C6;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000000001){
+          state.d = state.CERR; 
+         counter.d = 0;
+        }
+        
+      state.C6: //20 <= 20
+        alumodule.alufn = 6b110111;
+        alumodule.a = 16b0000000000010100; //20
+        alumodule.b = 16b0000000000010100; //20
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010100;
+        io_led[1] = 8b00010100;
+        io_led[0] = alu;
+        seg.values = {4hf,4hc,4h0,4h6}; //7seg show C06  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000000001){
+          state.d = state.C7;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000000001){
+          state.d = state.CERR;
+          counter.d = 0;
+        }
+        
+      state.C7: //21 <=/ 20
+        alumodule.alufn = 6b110111;
+        alumodule.a = 16b0000000000010101; //21
+        alumodule.b = 16b0000000000010100; //20
+        alu = alumodule.alu;
+        
+        io_led[2] = 8b00010101;
+        io_led[1] = 8b00010100;
+        io_led[0] = alu;
+        seg.values = {4hf,4hc,4h0,4h7}; //7seg show C07  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000000000){
+          state.d = state.CEC;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000000000){
+          state.d = state.CERR;
+          counter.d = 0;
+        }
+        
+      state.CEC: //compare error test: 18 =/= 18
+        alumodule.alufn = 6b110011;
+        alumodule.a = 16b0000000000010010; //18
+        alumodule.b = 16b0000000000010010; //18
+        alu = alumodule.alu+1; //intentional error making
+        
+        io_led[2] = 8b00010010;
+        io_led[1] = 8b00010010; 
+        io_led[0] = alu;
+        seg.values = {4hf,4hc,4he,4hc}; //7seg show CEC  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1 && alu == 16b0000000000000001){
+          state.d = state.IDLE;
+          counter.d = 0;
+        }
+        else if(counter.q[X] == 1 && alu != 16b0000000000000001){
+          state.d = state.CERR;
+          counter.d = 0;
+        }
+        
+        
+      state.CERR: //compare error state  
+        seg.values = {4hc,4he,4hd,4hd}; //7seg show CERR  
+        counter.d = counter.q+1;
+        
+        if(counter.q[X] == 1){
+          state.d = state.IDLE;
+          counter.d = 0;
+        }
+                         
+      
+  }
+}
+}
