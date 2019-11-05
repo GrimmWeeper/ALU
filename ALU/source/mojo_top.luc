@@ -17,7 +17,9 @@ module mojo_top (
     input io_button [5],    // 5 buttons on IO Shield
     output io_led [3][8],    // 24 LEDs on IO Shield
     output io_seg [8],      // 7-segment LEDs on IO Shield
-    output io_sel [4]      // Digit select on IO Shield
+    output io_sel [4],      // Digit select on IO Shield
+    input io_dip[3][8]     //serves as inputs. array 2 will be input A values, array 1 will be input B values, array 0 will be ALUFN values
+    
   ) {
   
   sig rst;                  // reset signal
@@ -27,11 +29,15 @@ module mojo_top (
     .rst(rst){
       multi_seven_seg seg; // Instantiate the 4 digit-segments LED display module
       //code to instantiate the seven segment led to show the fsm state (just follow the names in the fsm)
-      fsm state = {IDLE,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,AEC,AERR,B1,B2,B3,B4,BEC,BERR,S1,S2,S3,S4,S5,S6,SEC,SERR,C1,C2,C3,C4,C5,C6,C7,CEC,CERR}; //need to include FSM for compare 
+      fsm state = {IDLE,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,AEC,AERR,B1,B2,B3,B4,BEC,BERR,S1,S2,S3,S4,S5,S6,SEC,SERR,C1,C2,C3,C4,C5,C6,C7,CEC,CERR,MINPUT,MOUTPUT}; //need to include FSM for compare 
+      
       dff counter[30];
+      dff manual_a[16]; //VARIABLE TO STORE VALUE OF MANUAL INPUT a
+      dff manual_b[16]; //VARIABLE TO STORE VALUE OF MANUAL INPUT b
+      dff manual_alufn[6]; //VARIABLE TO STORE VALUE OF MANUAL INPUT ALUFN
   }
   }
-  const X = 27; // Constant used to control time before transitioning to next state (increase value to increase delay between states)
+  const X = 25; // Constant used to control time before transitioning to next state (increase value to increase delay between states)
   
   //internal signals of 8 bits a, b, alu
   sig a[16]; //8LSB to display on io_led
@@ -83,24 +89,71 @@ module mojo_top (
     case(state.q){
     
       state.IDLE:
-        counter.d = 0;
+        counter.d = counter.q+1;
         
         //displays
         seg.values = {4hb,4ha,4h5,4he}; //show 'bASE' on the 7 segment display
         
-        if(io_button[0] == 1){ //Press the 'UP' button to enter the state to test for ADDER component
+        if(io_button[0] == 1 && counter.q[X] == 1){ //Press the 'UP' button to enter the state to test for ADDER component
           state.d = state.A1;
+          counter.d = 0;
         }
-        else if(io_button[4] == 1){ //Press the 'RIGHT' button to enter the state to test for BOOLEAN component
+        else if(io_button[4] == 1 && counter.q[X] == 1){ //Press the 'RIGHT' button to enter the state to test for BOOLEAN component
           state.d = state.B1;
+          counter.d = 0;
         }
-        else if(io_button[2] == 1){ //Press the 'DOWN' button to enter the state to test for SHIFTER component
+        else if(io_button[2] == 1 && counter.q[X] == 1){ //Press the 'DOWN' button to enter the state to test for SHIFTER component
           state.d = state.S1;
+          counter.d = 0;
         }
-        else if(io_button[3] == 1){ //Press the 'LEFT' button to enter the state to test for COMPARE component
+        else if(io_button[3] == 1 && counter.q[X] == 1){ //Press the 'LEFT' button to enter the state to test for COMPARE component
           state.d = state.C1;
+          counter.d = 0;
+        }
+        else if(io_button[1] == 1 && counter.q[X] == 1){ //Press the 'CENTER' button to enter the state of manual testing
+          state.d = state.MINPUT;
+          counter.d = 0;
+        }        
+        
+//MANUAL TESTING
+      state.MINPUT: //STATE FOR MANUAL INPUT OF VALUES
+        seg.values = {4hf,4hf,4hf,4h1}; //7seg show IN  
+        manual_a.d[7:0] = io_dip[2][7:0]; //switches on array index 2 will be the values of manual_a on the less sig 8bits
+        manual_b.d[7:0] = io_dip[1][7:0]; //switches on array index 1 will be the values of manual_b on the less sig 8bits
+        manual_alufn.d[5:0] = io_dip[0][5:0]; //switches on the array index 0 will be the values of manual_alufn
+        counter.d = counter.q+1;
+        
+        if(io_button[1] == 1 && counter.q[X] == 1){ //when you are done inputting
+          state.d = state.MOUTPUT;
+          counter.d = 0;
+        }
+        else if (io_button[3] == 1&& counter.q[X] == 1){ //if you want to go back to the idle state, press the left io_button
+          state.d = state.IDLE;
+          counter.d = 0;
         }
         
+      state.MOUTPUT: // STATE FOR DISPLAYING THE OUTPUT OF THE MANUAL INPUTS
+        seg.values = {4hf,4hf,4hf,4h0}; //7seg show OUT  
+        alumodule.a = manual_a.q; 
+        alumodule.b = manual_b.q; 
+        alumodule.alufn = manual_alufn.q;
+        alu = alumodule.alu;
+        
+        io_led[0] = alu[7:0]; //use led array 0 to show the 8 LSB output of the alu
+        io_led[1] = alu[15:8]; //use led array 1 to show the 8 MSB output of the alu
+        
+        counter.d = counter.q+1;
+        
+        if(io_button[1] == 1 && counter.q[X] == 1){ //WHEN THE CENTRE BUTTON IS PRESSED AGAIN, EXIT THE MANUAL TESTING 
+          state.d = state.IDLE;
+          counter.d = 0;
+        }
+        else if(io_button[3] == 1 && counter.q[X] == 1){ //WHEN THE LEFT BUTTON IS PRESSED, GO BACK TO THE MANUAL INPUT
+          state.d = state.MINPUT;
+          counter.d = 0;
+        }      
+        
+//AUTOMATIC TESTING:          
         
       state.A1: //Add: 15+23=38
         alumodule.alufn = 6b0;
